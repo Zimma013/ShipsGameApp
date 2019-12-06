@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ShipsGameApp</string>
+    <string name="playButtonLabel">PLAY</string>
+    <string name="helpButtonLabel">HELP</string>
+    <string name="optionsButtonLabel">OPTIONS</string>
+    <string name="soundCheckboxLabel">SOUND</string>
+    <string name="vibrationCheckboxLabel">VIBRATIONS</string>
+    <string name="optionsHeader">GAME OPTIONS</string>
+    <string name="helpHeader">GAME RULES</string>
+    <string name="gameRules">All players have two 10x10 fields boards.\n
+            On one board, player randomly draws positions of his own ships, which will be later guessed by his opponent.\n
+            The other board is to mark hit enemy ships and shots that had been made.\n\n
+            Ships are set on board horizontally or vertically so they do not touch other with side or corner.\n
+            Ships differ in size, players have to their disposal one four fields sized ship, two three fields sized ships, three two fields sized ships and four one field sized ships.\n\n
+            To hit an opponent\'s ship, player needs to guess its location.\n
+            Shots are made alternately by clicking on the opponent\'s field (e.g. B5).\n\n
+            In case of a hit, player continues his turn until he misses.\n
+            The ship has sunk when all its fields are found (got hit).\n\n
+            First one to sink all enemy ships is the winner.</string>
+</resources>

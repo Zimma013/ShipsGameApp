@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".OptionsActivity">
+    <!--<view
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#C2003366"></view>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:orientation="vertical"
+        android:background="#C2003366">
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#D90011B2"
+            android:gravity="center"
+            android:text="@string/optionsHeader"
+            android:textColor="#FFE177"
+            android:textSize="25sp"
+            android:textStyle="bold|italic" />
+
+        <CheckBox
+        android:id="@+id/soundCheckbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:background="#C2003366"
+        android:layoutDirection="rtl"
+        android:onClick="toggleSound"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@string/soundCheckboxLabel"
+        android:textColor="#B2962F"
+        android:textDirection="ltr"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
+
+    <CheckBox
+        android:id="@+id/vibrationCheckbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#C2003366"
+        android:layoutDirection="rtl"
+        android:onClick="toggleVibrations"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@string/vibrationCheckboxLabel"
+        android:textColor="#B2962F"
+        android:textDirection="ltr"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
+
+    </LinearLayout>
+
+</RelativeLayout>

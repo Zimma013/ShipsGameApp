@@ -1,0 +1,1643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="horizontal"
+    tools:context=".GameActivity">
+
+    <TableLayout
+        android:id="@+id/player_table"
+        android:layout_width="930px"
+        android:layout_height="930px"
+        android:layout_marginBottom="80px"
+        android:layout_marginStart="20px"
+        android:layout_marginTop="80px"
+        android:alpha="0.7"
+        android:background="@drawable/water_tile_background"
+        android:shrinkColumns="*">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="vertical"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/player00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="00"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="01"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="02"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="03"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="04"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="05"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="06"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player07"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="07"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player08"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="08"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player09"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="09"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/player10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="10"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="11"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="12"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="13"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="14"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="15"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="16"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="17"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="18"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="19"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/player20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="20"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="21"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="22"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="23"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="24"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="25"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="26"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="27"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="28"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="29"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/player30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="30"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="31"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="32"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="33"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="34"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="35"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="36"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="37"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player38"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="38"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="39"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/player40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="40"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="41"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="42"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player43"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="43"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player44"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="44"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="45"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player46"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="46"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player47"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="47"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player48"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="48"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="49"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/player50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="50"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="51"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="52"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player53"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="53"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player54"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="54"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player55"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="55"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player56"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="56"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player57"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="57"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player58"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="58"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player59"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="59"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/player60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="60"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="61"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player62"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="62"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player63"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="63"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player64"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="64"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player65"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="65"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player66"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="66"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player67"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="67"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player68"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="68"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player69"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="69"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/player70"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="70"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player71"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="71"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player72"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="72"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player73"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="73"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player74"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="74"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player75"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="75"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player76"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="76"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player77"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="77"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player78"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="78"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player79"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="79"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/player80"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="80"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player81"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="81"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player82"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="82"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player83"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="83"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player84"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="84"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player85"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="85"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player86"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="86"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player87"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="87"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player88"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="88"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player89"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="89"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/player90"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="90"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player91"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="91"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player92"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="92"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player93"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="93"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player94"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="94"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player95"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="95"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player96"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="96"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player97"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="97"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player98"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="98"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/player99"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="99"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/hit_table"
+        android:layout_width="930px"
+        android:layout_height="930px"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="80px"
+        android:layout_marginEnd="20px"
+        android:layout_marginTop="80px"
+        android:alpha="0.8"
+        android:background="@drawable/water_tile_background"
+        android:shrinkColumns="*">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="vertical"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/computer00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="00"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="01"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="02"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="03"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="04"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="05"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="06"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer07"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="07"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer08"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="08"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer09"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="09"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/computer10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="10"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="11"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="12"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="13"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="14"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="15"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="16"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="17"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="18"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="19"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/computer20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="20"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="21"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="22"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="23"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="24"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="25"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="26"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="27"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="28"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="29"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/computer30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="30"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="31"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="32"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="33"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="34"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="35"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="36"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="37"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer38"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="38"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="39"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/computer40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="40"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="41"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="42"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer43"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="43"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer44"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="44"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="45"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer46"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="46"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer47"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="47"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer48"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="48"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="49"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/computer50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="50"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="51"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="52"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer53"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="53"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer54"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="54"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer55"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="55"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer56"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="56"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer57"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="57"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer58"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="58"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer59"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="59"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/computer60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="60"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="61"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer62"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="62"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer63"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="63"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer64"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="64"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer65"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="65"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer66"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="66"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer67"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="67"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer68"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="68"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer69"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="69"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/computer70"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="70"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer71"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="71"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer72"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="72"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer73"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="73"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer74"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="74"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer75"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="75"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer76"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="76"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer77"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="77"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer78"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="78"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer79"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="79"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/computer80"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="80"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer81"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="81"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer82"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="82"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer83"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="83"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer84"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="84"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer85"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="85"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer86"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="86"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer87"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="87"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer88"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="88"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer89"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="89"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:isScrollContainer="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:isScrollContainer="false">
+
+            <ImageView
+                android:id="@+id/computer90"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="90"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer91"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="91"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer92"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="92"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer93"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="93"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer94"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="94"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer95"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="95"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer96"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="96"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer97"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="97"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer98"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="98"
+                app:srcCompat="@drawable/water_tile" />
+
+            <ImageView
+                android:id="@+id/computer99"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="99"
+                app:srcCompat="@drawable/water_tile" />
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/generateBoardButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/player_table"
+        android:layout_marginEnd="53dp"
+        android:layout_marginTop="88dp"
+        android:text="Generuj ponownie"
+        android:textColor="#7784FF"
+        android:background="@drawable/button"/>
+
+    <Button
+        android:id="@+id/startGameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/generateBoardButton"
+        android:layout_below="@+id/generateBoardButton"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:text="Rozpocznij gre"
+        android:textColor="#7784FF"
+        android:background="@drawable/button"/>
+
+</RelativeLayout>
