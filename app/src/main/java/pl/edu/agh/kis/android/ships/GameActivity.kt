@@ -1012,21 +1012,21 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    private fun aiRandomShoot(): Int { //zwraca wylosowane pole i usuwa je z aiPlayerCoordinates
-        val num = Random().nextInt(aiPlayerCoordinates.size) //wylosowanie pola
+    private fun aiRandomShoot(): Int { // returns random field that is deleted from aiPlayerCoordinates, which is essentially computers targeting board
+        val num = Random().nextInt(aiPlayerCoordinates.size)
         val field = aiPlayerCoordinates[num]
-        aiPlayerCoordinates.removeAt(num) //usuniecie pola z tablicy
-        return field //zwrocenie pola
+        aiPlayerCoordinates.removeAt(num)
+        return field
     }
 
-    private fun aiGoBack() { //jeżeli wszystkie sąsiednie pola nie istnieją to wracamy do aiFirstShotShipField
+    private fun aiGoBack() { // if all neighbouring field don't exist return to aiFirstShotShipField
         if ((!checkIfExistInCoordinates(aiLastShotShipField + 1) || Math.floor((aiLastShotShipField / 10).toDouble()) != Math.floor(
                 ((aiLastShotShipField + 1) / 10).toDouble()
-            )) //nie istnieje lub gdy jesteśmy przy ścianie i istnieje w następnym wierszu
+            )) // don't exist or near edge and exists in next row
 
             && (!checkIfExistInCoordinates(aiLastShotShipField - 1) || Math.floor((aiLastShotShipField / 10).toDouble()) != Math.floor(
                 ((aiLastShotShipField - 1) / 10).toDouble()
-            )) //nie istnieje lub gdy jesteśmy przy ścianie i istnieje w poprzednim wierszu
+            )) // don't exist or near edge and exists in previous row
 
             && !checkIfExistInCoordinates(aiLastShotShipField - 10)
             && !checkIfExistInCoordinates(aiLastShotShipField + 10)
@@ -1193,19 +1193,19 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkTable(table: IntArray): Boolean { //sprawdza czy tablica ma tylko zera
+    private fun checkTable(table: IntArray): Boolean { // checks if table has only zeroes
         for (i in table) {
             if (i > 0) {
                 return false
-            } //ma jakieś liczby
+            }
         }
-        return true //ma tylko zera
+        return true
     }
 
     private fun checkIfSunk(
         shipTable: IntArray,
         id: Int
-    ): Boolean { //sprawdza czy ship o ID zostal zatopiony
+    ): Boolean { // checks if a ship with id has been sunk
         var i = 0
         while (i < 100) {
             if (shipTable[i++] == id) {
@@ -1215,7 +1215,7 @@ class GameActivity : AppCompatActivity() {
         return true
     }
 
-    private fun checkIfExistInCoordinates(id: Int): Boolean { //sprawdza czy pole o danym id istnieje w aiPlayerCoordinates
+    private fun checkIfExistInCoordinates(id: Int): Boolean { // checks if field with id exists in aiPlayerCoordinates
         var i = 0
         while (i < aiPlayerCoordinates.size) {
             if (aiPlayerCoordinates[i++] == id) {
@@ -1225,7 +1225,7 @@ class GameActivity : AppCompatActivity() {
         return false
     }
 
-    private fun removeFromCoordinates(id: Int): Boolean { //usuwa pole o danym id z aiPlayerCoordinates
+    private fun removeFromCoordinates(id: Int): Boolean { // deletes field with id from aiPlayerCoordinates
         for (i in aiPlayerCoordinates.indices) {
             if (aiPlayerCoordinates[i] == id) {
                 aiPlayerCoordinates.removeAt(i)
