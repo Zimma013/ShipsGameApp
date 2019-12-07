@@ -22,7 +22,8 @@
         android:hint="Username"
         android:scrollHorizontally="true"
         android:focusable="true"
-        android:focusableInTouchMode="true"/>
+        android:focusableInTouchMode="true"
+        android:inputType="textMultiLine|text" />
     <Button
         android:id="@+id/button_popup"
         android:layout_width="wrap_content"

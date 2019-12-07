@@ -16,6 +16,12 @@ import org.w3c.dom.Text
 import pl.edu.agh.kis.android.ships.components.Audio
 import pl.edu.agh.kis.android.ships.components.Score
 import java.util.*
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import androidx.appcompat.app.AlertDialog
+
 
 class GameActivity : AppCompatActivity() {
 
@@ -46,6 +52,7 @@ class GameActivity : AppCompatActivity() {
         -1                                 // w celach zawracania ostrzału bez strzelenia po bokach
     private val aiShipFields =
         ArrayList<Int>()                      // tablica trafionych pól statków przez komputer
+   private var turn = 0
     // delay
     var setDelay: Handler = Handler()
     var startDelay: Runnable = Runnable { ai() }
@@ -97,7 +104,6 @@ class GameActivity : AppCompatActivity() {
             findViewById<TableLayout>(R.id.hit_table).visibility = View.VISIBLE
             resetShipTable(computerShipTable)
             shipGenerator(computerShipTable)
-
             run {
                 var i = 0
                 while (i < 100) {
@@ -110,10 +116,10 @@ class GameActivity : AppCompatActivity() {
                 pole.setOnClickListener {
                     val id = Integer.parseInt(it.tag as String)
                     val vImageView = it as ImageView
-
                     if (whoShoots == 0) { // if players turn to shoot
                         it.setOnClickListener(null) // after clicking on a field, remove onClickListener
                         if (computerShipTable[id] == 0) { // if shot missed
+                            turn++
                             vImageView.setImageResource(R.drawable.miss_tile)
 
                             whoShoots = 1 // change turn o computer
@@ -167,15 +173,15 @@ class GameActivity : AppCompatActivity() {
                             popupWindow.exitTransition = slideOut
 
                         }
-
+                        popupWindow.setFocusable(true);
                         // Get the widgets reference from custom view
                         val buttonPopup = view.findViewById<Button>(R.id.button_popup)
-                        var text = view.findViewById<EditText>(R.id.username)
-                        val score = Score(i+1,text.text.toString())
                         val dbHandler = ShipsDBOpenHelper(this, null)
                         // Set a click listener for popup's button widget
                         buttonPopup.setOnClickListener{
                             // Dismiss the popup window
+                            var text = view.findViewById<EditText>(R.id.username)
+                            val score = Score(turn,text.text.toString())
                             dbHandler.addScore(score)
                             popupWindow.dismiss()
                         }
