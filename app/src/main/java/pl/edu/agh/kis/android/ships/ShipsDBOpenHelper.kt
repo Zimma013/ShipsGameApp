@@ -16,7 +16,7 @@ class ShipsDBOpenHelper(context: Context,
                 TABLE_NAME + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY," +
                 COLUMN_NAME_username
-                + " TEXT " +
+                + " TEXT," +
                 COLUMN_NAME_scoreValue
                 + " TEXT" + ")")
         db.execSQL(CREATE_PRODUCTS_TABLE)
@@ -38,7 +38,7 @@ class ShipsDBOpenHelper(context: Context,
         return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
     }
     companion object {
-        private val DATABASE_VERSION = 2
+        private val DATABASE_VERSION = 4
         private val DATABASE_NAME = "userscore.db"
         val TABLE_NAME = "userscore"
         val COLUMN_ID = "_id"

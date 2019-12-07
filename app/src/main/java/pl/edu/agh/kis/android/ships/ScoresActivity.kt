@@ -20,13 +20,18 @@ class ScoresActivity : AppCompatActivity() {
         val dbHandler = ShipsDBOpenHelper(this, null)
         val cursor = dbHandler.getAllScore()
         cursor!!.moveToFirst()
-        System.out.println("RAZ")
-        System.out.println(cursor.getColumnIndex(ShipsDBOpenHelper.COLUMN_NAME_username))
-        tvDisplayName.append((cursor.getString(cursor.getColumnIndex(ShipsDBOpenHelper.COLUMN_NAME_username))))
-        while (cursor.moveToNext()) {
+        if(cursor.count != 0) {
             tvDisplayName.append((cursor.getString(cursor.getColumnIndex(ShipsDBOpenHelper.COLUMN_NAME_username))))
+            tvDisplayName.append(" ")
+            tvDisplayName.append((cursor.getString(cursor.getColumnIndex(ShipsDBOpenHelper.COLUMN_NAME_scoreValue))))
             tvDisplayName.append("\n")
+            while (cursor.moveToNext()) {
+                tvDisplayName.append((cursor.getString(cursor.getColumnIndex(ShipsDBOpenHelper.COLUMN_NAME_username))))
+                tvDisplayName.append(" ")
+                tvDisplayName.append((cursor.getString(cursor.getColumnIndex(ShipsDBOpenHelper.COLUMN_NAME_scoreValue))))
+                tvDisplayName.append("\n")
+            }
+            cursor.close()
         }
-        cursor.close()
     }
 }
