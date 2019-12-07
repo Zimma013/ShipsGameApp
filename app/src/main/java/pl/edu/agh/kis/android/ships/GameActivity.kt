@@ -49,7 +49,7 @@ class GameActivity : AppCompatActivity() {
     var startDelay: Runnable = Runnable { ai() }
 
     // sound and vibration player
-    private val playSong = Audio()
+    private val multimediaPlayer = Audio()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,28 +68,28 @@ class GameActivity : AppCompatActivity() {
         shipGenerator(playerShipTable)
         showShips(false, playerShipTable)
 
-        //inicjalizacja aiDirections
+        // aiDirections init
         aiDirections.add(0)
         aiDirections.add(1)
         aiDirections.add(2)
         aiDirections.add(3)
 
-        val buttonGenerujPonownie = findViewById<Button>(R.id.generateBoardButton)
-        buttonGenerujPonownie.setOnClickListener {
+        val generateBoardButton = findViewById<Button>(R.id.generateBoardButton)
+        generateBoardButton.setOnClickListener {
             resetShipTable(playerShipTable)
             shipGenerator(playerShipTable)
             for (i in 0..99) {
-                val pole = findViewById<ImageView>(playerFields[i])
+                val boardField = findViewById<ImageView>(playerFields[i])
                 if (playerShipTable[i] == 0) {
-                    pole.setImageResource(R.drawable.water_tile)
+                    boardField.setImageResource(R.drawable.water_tile)
                 } else {
-                    pole.setImageResource(R.drawable.ship)
+                    boardField.setImageResource(R.drawable.ship)
                 }
             }
         }
 
-        val buttonRozpocznijGre = findViewById<Button>(R.id.startGameButton)
-        buttonRozpocznijGre.setOnClickListener {
+        val startGameButton = findViewById<Button>(R.id.startGameButton)
+        startGameButton.setOnClickListener {
             findViewById<Button>(R.id.startGameButton).visibility = View.GONE
             findViewById<Button>(R.id.generateBoardButton).visibility = View.GONE
             findViewById<TableLayout>(R.id.hit_table).visibility = View.VISIBLE
@@ -109,16 +109,16 @@ class GameActivity : AppCompatActivity() {
                     val id = Integer.parseInt(it.tag as String)
                     val vImageView = it as ImageView
 
-                    if (whoShoots == 0) { //jeżeli tura gracza
-                        it.setOnClickListener(null) //po naciśnięciu pola, usuwamy funkcję z tego pola
-                        if (computerShipTable[id] == 0) { //jeżeli pudło
+                    if (whoShoots == 0) { // if players turn to shoot
+                        it.setOnClickListener(null) // after clicking on a field, remove onClickListener
+                        if (computerShipTable[id] == 0) { // if shot missed
                             vImageView.setImageResource(R.drawable.miss_tile)
 
-                            whoShoots = 1
-                            playSong.playMiss(this@GameActivity)
+                            whoShoots = 1 // change turn o computer
+                            multimediaPlayer.playMiss(this@GameActivity)
 //                            startDelay = Runnable { ai() }
-                            setDelay?.postDelayed(startDelay, 1250)
-                        } else { //jezeli hit
+                            setDelay.postDelayed(startDelay, 1250)
+                        } else { // if shot hit something
                             shipFieldsShotByPlayer.add(id)
                             shipFieldsShotByPlayerTypes.add(computerShipTable[id])
                             vImageView.setImageResource(R.drawable.hit)
@@ -135,12 +135,12 @@ class GameActivity : AppCompatActivity() {
                             }
 
                             whoShoots = 0
-                            playSong.playHit(this@GameActivity)
+                            multimediaPlayer.playHit(this@GameActivity)
                         }
                     }
                     if (checkTable(computerShipTable)) {
                         deleteAllOnClicks()
-                        Toast.makeText(applicationContext, "Wygrałeś!!!", Toast.LENGTH_LONG)
+                        Toast.makeText(applicationContext, applicationContext.getText(R.string.gameWon), Toast.LENGTH_LONG)
                             .show()
                     }
                 }
@@ -371,10 +371,10 @@ class GameActivity : AppCompatActivity() {
         id: Int,
         shipTable: IntArray,
         direction: Int
-    ): Boolean { //sprawdza czy pola po danej stronie są puste; używana w generacji statków
+    ): Boolean { // checks if fields in direction are empty
         var isEmpty = 3
         when (direction) {
-            0 //po prawej
+            0 // right
             -> {
                 if (id - 9 < 0) {
                     --isEmpty
@@ -396,7 +396,7 @@ class GameActivity : AppCompatActivity() {
                     return true
                 }
             }
-            1 //po lewej
+            1 // left
             -> {
                 if (id + 10 > 99) {
                     --isEmpty
@@ -418,7 +418,7 @@ class GameActivity : AppCompatActivity() {
                     return true
                 }
             }
-            2 //na dole
+            2 // bottom
             -> {
                 if (id - 11 < 0) {
                     --isEmpty
@@ -440,7 +440,7 @@ class GameActivity : AppCompatActivity() {
                     return true
                 }
             }
-            3 //u góry
+            3 // top
             -> {
                 if (id - 11 < 0) {
                     --isEmpty
@@ -469,7 +469,7 @@ class GameActivity : AppCompatActivity() {
     private fun is3x3Empty(
         id: Int,
         shipTable: IntArray
-    ): Boolean { //sprawdza czy dane 3x3 jest puste, wprowadzone bo jest szybsze od czterech checkIfFieldIsEmpty
+    ): Boolean { // checks if 3x3 field block is empty; faster than checkIfFieldIsEmpty used 4 times
         if (shipTable[id] != 0) {
             return false
         }
@@ -517,13 +517,13 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun generateShip4(shipTable: IntArray, id: Int): Boolean {
-        val direction = Random().nextInt(4) //0 prawo, 1 dół, 2 lewo, 3 góra
+        val direction = Random().nextInt(4) //0 right, 1 bottom, 2 left, 3 top
 
         if (!is3x3Empty(id, shipTable)) {
             return true
         }
 
-        if (direction == 0) { //w prawo
+        if (direction == 0) { // right
             val id2 = id + 1
             if (id2 > 99) {
                 return true
@@ -533,7 +533,7 @@ class GameActivity : AppCompatActivity() {
                     shipTable,
                     direction
                 )
-            ) { //czy 1 w prawo jest ok?
+            ) { // is 1 next to right ok
                 val id3 = id2 + 1
                 if (id3 > 99) {
                     return true
@@ -543,7 +543,7 @@ class GameActivity : AppCompatActivity() {
                         shipTable,
                         direction
                     )
-                ) { //czy 2 w prawo jest ok?
+                ) { // is 2 next to right ok
                     val id4 = id3 + 1
                     if (id4 > 99) {
                         return true
@@ -553,7 +553,7 @@ class GameActivity : AppCompatActivity() {
                             shipTable,
                             direction
                         )
-                    ) { //czy 3 w prawo jest ok?
+                    ) { // is 3 next to right ok
                         shipTable[id] = 41
                         shipTable[id2] = 41
                         shipTable[id3] = 41
@@ -562,22 +562,22 @@ class GameActivity : AppCompatActivity() {
                     }
                 }
             }
-        } else if (direction == 1) { //w dół
+        } else if (direction == 1) { // bottom
             val id2 = id + 10
             if (id2 > 99) {
                 return true
             }
-            if (checkIfFieldIsEmpty(id2, shipTable, direction)) { //czy 1 w dół jest ok?
+            if (checkIfFieldIsEmpty(id2, shipTable, direction)) { // is 1 next to bottom ok
                 val id3 = id2 + 10
                 if (id3 > 99) {
                     return true
                 }
-                if (checkIfFieldIsEmpty(id3, shipTable, direction)) { //czy 2 w dół jest ok?
+                if (checkIfFieldIsEmpty(id3, shipTable, direction)) { // is 2 next to bottom ok
                     val id4 = id3 + 10
                     if (id4 > 99) {
                         return true
                     }
-                    if (checkIfFieldIsEmpty(id4, shipTable, direction)) { //czy 3 w dół jest ok?
+                    if (checkIfFieldIsEmpty(id4, shipTable, direction)) { // is 3 next to bottom ok
                         shipTable[id] = 41
                         shipTable[id2] = 41
                         shipTable[id3] = 41
@@ -586,7 +586,7 @@ class GameActivity : AppCompatActivity() {
                     }
                 }
             }
-        } else if (direction == 2) { //w lewo
+        } else if (direction == 2) { // left
             val id2 = id - 1
             if (id2 < 0) {
                 return true
@@ -596,7 +596,7 @@ class GameActivity : AppCompatActivity() {
                     shipTable,
                     direction
                 )
-            ) { //czy 1 w lewo jest ok?
+            ) { // is 1 next to left ok
                 val id3 = id2 - 1
                 if (id3 < 0) {
                     return true
@@ -606,7 +606,7 @@ class GameActivity : AppCompatActivity() {
                         shipTable,
                         direction
                     )
-                ) { //czy 2 w lewo jest ok?
+                ) { // is 2 next to left ok
                     val id4 = id3 - 1
                     if (id4 < 0) {
                         return true
@@ -616,7 +616,7 @@ class GameActivity : AppCompatActivity() {
                             shipTable,
                             direction
                         )
-                    ) { //czy 3 w lewo jest ok?
+                    ) { // is 3 next to left ok
                         shipTable[id] = 41
                         shipTable[id2] = 41
                         shipTable[id3] = 41
@@ -625,22 +625,22 @@ class GameActivity : AppCompatActivity() {
                     }
                 }
             }
-        } else { //w góre
+        } else { // top
             val id2 = id - 10
             if (id2 < 0) {
                 return true
             }
-            if (checkIfFieldIsEmpty(id2, shipTable, direction)) { //czy 1 w góre jest ok?
+            if (checkIfFieldIsEmpty(id2, shipTable, direction)) { // is 1 next to top ok
                 val id3 = id2 - 10
                 if (id3 < 0) {
                     return true
                 }
-                if (checkIfFieldIsEmpty(id3, shipTable, direction)) { //czy 2 w góre jest ok?
+                if (checkIfFieldIsEmpty(id3, shipTable, direction)) { // is 2 next to top ok
                     val id4 = id3 - 10
                     if (id4 < 0) {
                         return true
                     }
-                    if (checkIfFieldIsEmpty(id4, shipTable, direction)) { //czy 3 w góre jest ok?
+                    if (checkIfFieldIsEmpty(id4, shipTable, direction)) { // is 3 next to top ok
                         shipTable[id] = 41
                         shipTable[id2] = 41
                         shipTable[id3] = 41
@@ -654,13 +654,13 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun generateShip3(shipTable: IntArray, id: Int, shipNumber: Int): Boolean {
-        val direction = Random().nextInt(4) //0 prawo, 1 dół, 2 lewo, 3 góra
+        val direction = Random().nextInt(4) //0 right, 1 bottom, 2 left, 3 top
 
         if (!is3x3Empty(id, shipTable)) {
             return true
         }
 
-        if (direction == 0) { //w prawo
+        if (direction == 0) { // right
             val id2 = id + 1
             if (id2 > 99) {
                 return true
@@ -670,7 +670,7 @@ class GameActivity : AppCompatActivity() {
                     shipTable,
                     direction
                 )
-            ) { //czy 1 w prawo jest ok?
+            ) { // is 1 next to right ok?
                 val id3 = id2 + 1
                 if (id3 > 99) {
                     return true
@@ -680,31 +680,31 @@ class GameActivity : AppCompatActivity() {
                         shipTable,
                         direction
                     )
-                ) { //czy 2 w prawo jest ok?
+                ) { // is 2 next to right ok?
                     shipTable[id] = 30 + shipNumber
                     shipTable[id2] = 30 + shipNumber
                     shipTable[id3] = 30 + shipNumber
                     return false
                 }
             }
-        } else if (direction == 1) { //w dół
+        } else if (direction == 1) { // bottom
             val id2 = id + 10
             if (id2 > 99) {
                 return true
             }
-            if (checkIfFieldIsEmpty(id2, shipTable, direction)) { //czy 1 w dół jest ok?
+            if (checkIfFieldIsEmpty(id2, shipTable, direction)) { // is 1 next to bottom ok
                 val id3 = id2 + 10
                 if (id3 > 99) {
                     return true
                 }
-                if (checkIfFieldIsEmpty(id3, shipTable, direction)) { //czy 2 w dół jest ok?
+                if (checkIfFieldIsEmpty(id3, shipTable, direction)) { //is 3 next to bottom ok
                     shipTable[id] = 30 + shipNumber
                     shipTable[id2] = 30 + shipNumber
                     shipTable[id3] = 30 + shipNumber
                     return false
                 }
             }
-        } else if (direction == 2) { //w lewo
+        } else if (direction == 2) { // left
             val id2 = id - 1
             if (id2 < 0) {
                 return true
@@ -714,7 +714,7 @@ class GameActivity : AppCompatActivity() {
                     shipTable,
                     direction
                 )
-            ) { //czy 1 w lewo jest ok?
+            ) { // is 1 next to left ok
                 val id3 = id2 - 1
                 if (id3 < 0) {
                     return true
@@ -724,24 +724,24 @@ class GameActivity : AppCompatActivity() {
                         shipTable,
                         direction
                     )
-                ) { //czy 2 w lewo jest ok?
+                ) { // is 2 next to left ok
                     shipTable[id] = 30 + shipNumber
                     shipTable[id2] = 30 + shipNumber
                     shipTable[id3] = 30 + shipNumber
                     return false
                 }
             }
-        } else { //w góre
+        } else { // top
             val id2 = id - 10
             if (id2 < 0) {
                 return true
             }
-            if (checkIfFieldIsEmpty(id2, shipTable, direction)) { //czy 1 w góre jest ok?
+            if (checkIfFieldIsEmpty(id2, shipTable, direction)) { // is 1 next to top ok
                 val id3 = id2 - 10
                 if (id3 < 0) {
                     return true
                 }
-                if (checkIfFieldIsEmpty(id3, shipTable, direction)) { //czy 2 w góre jest ok?
+                if (checkIfFieldIsEmpty(id3, shipTable, direction)) { // is 2 next to top ok
                     shipTable[id] = 30 + shipNumber
                     shipTable[id2] = 30 + shipNumber
                     shipTable[id3] = 30 + shipNumber
@@ -753,13 +753,13 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun generateShip2(shipTable: IntArray, id: Int, shipNumber: Int): Boolean {
-        val direction = Random().nextInt(4) //0 prawo, 1 dół, 2 lewo, 3 góra
+        val direction = Random().nextInt(4) //0 right, 1 bottom, 2 left, 3 top
 
         if (!is3x3Empty(id, shipTable)) {
             return true
         }
 
-        if (direction == 0) { //w prawo
+        if (direction == 0) { // right
             val id2 = id + 1
             if (id2 > 99) {
                 return true
@@ -769,22 +769,22 @@ class GameActivity : AppCompatActivity() {
                     shipTable,
                     direction
                 )
-            ) { //czy 1 w prawo jest ok?
+            ) { // is 1 next to right ok?
                 shipTable[id] = 20 + shipNumber
                 shipTable[id2] = 20 + shipNumber
                 return false
             }
-        } else if (direction == 1) { //w dół
+        } else if (direction == 1) { // bottom
             val id2 = id + 10
             if (id2 > 99) {
                 return true
             }
-            if (checkIfFieldIsEmpty(id2, shipTable, direction)) { //czy 1 w dół jest ok?
+            if (checkIfFieldIsEmpty(id2, shipTable, direction)) { // is 1 next to bottom ok
                 shipTable[id] = 20 + shipNumber
                 shipTable[id2] = 20 + shipNumber
                 return false
             }
-        } else if (direction == 2) { //w lewo
+        } else if (direction == 2) { // left
             val id2 = id - 1
             if (id2 < 0) {
                 return true
@@ -794,17 +794,17 @@ class GameActivity : AppCompatActivity() {
                     shipTable,
                     direction
                 )
-            ) { //czy 1 w lewo jest ok?
+            ) { // is 1 next to left ok
                 shipTable[id] = 20 + shipNumber
                 shipTable[id2] = 20 + shipNumber
                 return false
             }
-        } else { //w góre
+        } else { // top
             val id2 = id - 10
             if (id2 < 0) {
                 return true
             }
-            if (checkIfFieldIsEmpty(id2, shipTable, direction)) { //czy 1 w góre jest ok?
+            if (checkIfFieldIsEmpty(id2, shipTable, direction)) { // is 1 next to top ok
                 shipTable[id] = 20 + shipNumber
                 shipTable[id2] = 20 + shipNumber
                 return false
@@ -824,12 +824,12 @@ class GameActivity : AppCompatActivity() {
     private fun shipGenerator(shipTable: IntArray) {
         var num: Int
 
-        //1 ship 4-polowy
+        //1 x 4-field ships
         do {
             num = Random().nextInt(100)
         } while (generateShip4(shipTable, num))
 
-        //2 statki 3-polowe
+        //2 x 3-field ships
         do {
             num = Random().nextInt(100)
         } while (generateShip3(shipTable, num, 1))
@@ -837,7 +837,7 @@ class GameActivity : AppCompatActivity() {
             num = Random().nextInt(100)
         } while (generateShip3(shipTable, num, 2))
 
-        //3 statki 2-polowe
+        //3 x 2-field ships
         do {
             num = Random().nextInt(100)
         } while (generateShip2(shipTable, num, 1))
@@ -848,7 +848,7 @@ class GameActivity : AppCompatActivity() {
             num = Random().nextInt(100)
         } while (generateShip2(shipTable, num, 3))
 
-        //4 statki 1-polowe
+        //4 x 1-field ships
         do {
             num = Random().nextInt(100)
         } while (generateShip1(shipTable, num, 1))
@@ -866,12 +866,12 @@ class GameActivity : AppCompatActivity() {
     private fun showShips(
         whichTable: Boolean,
         shipTable: IntArray
-    ) { //wyświetla wszystkie statki w danej tablicy
+    ) { // show all ships on board
         if (!whichTable) {
             for (i in 0..99) {
                 if (shipTable[i] > 0) {
-                    val pole = findViewById<ImageView>(playerFields[i])
-                    pole.setImageResource(R.drawable.ship)
+                    val boardField = findViewById<ImageView>(playerFields[i])
+                    boardField.setImageResource(R.drawable.ship)
                 }
             }
         } else {
@@ -884,19 +884,19 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    private fun ai() { //strzelanie do pól gracza
+    private fun ai() { // computer AI
         val elem: Int
         if (checkTable(playerShipTable)) {
-            Toast.makeText(applicationContext, "Przegrałeś :(", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, applicationContext.getString(R.string.gameLost), Toast.LENGTH_LONG).show()
             deleteAllOnClicks()
             showShips(true, computerShipTable)
             return
         }
 
-        if (whoShoots == 1) { //jeżeli tura komputera
-            if (aiLastShotShipField == -1) { //strzelanie losowo
+        if (whoShoots == 1) { // if computer turn
+            if (aiLastShotShipField == -1) { // random shooting
                 elem = aiRandomShoot()
-            } else { //strzelanie ai
+            } else { // targeted shooting
                 var elem1: Int
                 do {
                     elem1 = aiShootShip()
@@ -904,12 +904,12 @@ class GameActivity : AppCompatActivity() {
                 elem = elem1
             }
 
-            if (playerShipTable[elem] == 0) { //jeżeli pudło
+            if (playerShipTable[elem] == 0) { // if shot missed
                 val v = findViewById<ImageView>(playerFields[elem])
                 val vImageView = v as ImageView
                 vImageView.setImageResource(R.drawable.miss_tile)
-                playSong.playMiss(this@GameActivity)
-                if (aiTwoGoodShotsSameDirection != -1) { //zawracanie ostrzału po 2 udanych i 1 nieudanym strzale w tym samym kierunku
+                multimediaPlayer.playMiss(this@GameActivity)
+                if (aiTwoGoodShotsSameDirection != -1) { // changing direction of shooting after 2 hits and 1 miss in this direction
                     when (aiTwoGoodShotsSameDirection) {
                         0 -> aiLastDirection = 2
                         1 -> aiLastDirection = 3
@@ -918,10 +918,10 @@ class GameActivity : AppCompatActivity() {
                     }
                     aiLastShotShipField = aiFirstShotShipField
                 } else {
-                    aiLastDirection = -1 //spudłowaliśmy, więc następny strzał ma być w inną stronę
+                    aiLastDirection = -1 // shooting direction change after miss
                 }
                 whoShoots = 0
-            } else { //if hit
+            } else { // if hit
                 val v = findViewById<ImageView>(playerFields[elem])
                 val id = Integer.parseInt(v.tag as String)
                 val vImageView = v as ImageView
@@ -935,10 +935,10 @@ class GameActivity : AppCompatActivity() {
                 if (aiFirstShotShipField != -1 && aiTwoGoodShotsSameDirection == -1) {
                     aiTwoGoodShotsSameDirection = aiLastDirection
                 }
-                if (aiFirstShotShipField == -1) { //id pierwszego trafionego punktu statku
+                if (aiFirstShotShipField == -1) { // first hit ship field id
                     aiFirstShotShipField = id
                 }
-                if (checkIfSunk(playerShipTable, tempId)) { //jeżeli ship zatopiony
+                if (checkIfSunk(playerShipTable, tempId)) { // if ship has been sunk
                     aiRemoveAdjacentFields()
                     aiLastShotShipField = -1
                     aiFirstShotShipField = -1
@@ -950,7 +950,7 @@ class GameActivity : AppCompatActivity() {
                 aiDirections.add(1)
                 aiDirections.add(2)
                 aiDirections.add(3)
-                playSong.playHit(this@GameActivity)
+                multimediaPlayer.playHit(this@GameActivity)
                 whoShoots = 1
 //                startDelay = Runnable { ai() }
                 setDelay?.postDelayed(startDelay, 1250)
@@ -969,8 +969,8 @@ class GameActivity : AppCompatActivity() {
 
         when (aiLastDirection) {
             0 -> {
-                if (checkIfExistInCoordinates(aiLastShotShipField + 1)) { //jeżeli istnieje to można strzelać
-                    if (Math.floor((aiLastShotShipField / 10).toDouble()) == Math.floor(((aiLastShotShipField + 1) / 10).toDouble())) { //jeżeli nie wyjdzie do następnego wiersza
+                if (checkIfExistInCoordinates(aiLastShotShipField + 1)) { // if ship exists, continue shooting
+                    if (Math.floor((aiLastShotShipField / 10).toDouble()) == Math.floor(((aiLastShotShipField + 1) / 10).toDouble())) { // checks if leaves current row to the next one
                         removeFromCoordinates(aiLastShotShipField + 1)
                         return aiLastShotShipField + 1
                     }
@@ -979,8 +979,8 @@ class GameActivity : AppCompatActivity() {
                 return -1
             }
             1 -> {
-                if (checkIfExistInCoordinates(aiLastShotShipField + 10)) { //jeżeli istnieje to można strzelać
-                    if (aiLastShotShipField + 10 < 100) { //jeżeli nie wyjdzie za tabelę
+                if (checkIfExistInCoordinates(aiLastShotShipField + 10)) { // if ship exists, continue shooting
+                    if (aiLastShotShipField + 10 < 100) { // if not exits the board
                         removeFromCoordinates(aiLastShotShipField + 10)
                         return aiLastShotShipField + 10
                     }
@@ -989,8 +989,8 @@ class GameActivity : AppCompatActivity() {
                 return -1
             }
             2 -> {
-                if (checkIfExistInCoordinates(aiLastShotShipField - 1)) { //jeżeli istnieje to można strzelać
-                    if (Math.floor((aiLastShotShipField / 10).toDouble()) == Math.floor(((aiLastShotShipField - 1) / 10).toDouble())) { //jeżeli nie wyjdzie do poprzedniego wiersza
+                if (checkIfExistInCoordinates(aiLastShotShipField - 1)) { // if ship exists, continue shooting
+                    if (Math.floor((aiLastShotShipField / 10).toDouble()) == Math.floor(((aiLastShotShipField - 1) / 10).toDouble())) { // checks if leaves current row to the previous one
                         removeFromCoordinates(aiLastShotShipField - 1)
                         return aiLastShotShipField - 1
                     }
@@ -999,8 +999,8 @@ class GameActivity : AppCompatActivity() {
                 return -1
             }
             3 -> {
-                if (checkIfExistInCoordinates(aiLastShotShipField - 10)) { //jeżeli istnieje to można strzelać
-                    if (aiLastShotShipField - 10 >= 0) { //jeżeli nie wyjdzie przed tabelę
+                if (checkIfExistInCoordinates(aiLastShotShipField - 10)) { // if ship exists, continue shooting
+                    if (aiLastShotShipField - 10 >= 0) { // if not exits the board
                         removeFromCoordinates(aiLastShotShipField - 10)
                         return aiLastShotShipField - 10
                     }
