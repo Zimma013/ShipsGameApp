@@ -19,10 +19,10 @@ class OptionsActivity : AppCompatActivity() {
     }
 
     fun toggleSound(view: View) {
-
+        Options.sound = !Options.sound
     }
 
     fun toggleVibrations(view: View) {
-
+        Options.vibrations = !Options.vibrations
     }
 }
