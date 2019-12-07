@@ -33,7 +33,10 @@
             android:layout_marginTop="16dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="parent" />
+            app:layout_constraintTop_toBottomOf="parent"
+            android:textColor="#ffe608"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"/>
 
 
     </LinearLayout>
