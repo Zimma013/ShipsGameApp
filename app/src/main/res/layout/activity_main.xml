@@ -16,13 +16,16 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:gravity="center_horizontal">
 
+            <!-- android:layout_width="391dp" -->
+            <!-- android:layout_weight="0"    -->
             <Button
                 android:id="@+id/playButton"
-                android:layout_width="391dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
+                android:layout_weight="1"
                 android:background="@drawable/button"
                 android:onClick="onPlayClick"
                 android:text="@string/playButtonLabel"
@@ -33,13 +36,14 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:gravity="center_horizontal">
 
             <Button
                 android:id="@+id/helpButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
+                android:layout_weight="1"
                 android:background="@drawable/button"
                 android:onClick="onHelpClick"
                 android:text="@string/helpButtonLabel"
@@ -50,13 +54,14 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:gravity="center_horizontal">
 
             <Button
                 android:id="@+id/optionsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
+                android:layout_weight="1"
                 android:background="@drawable/button"
                 android:onClick="onOptionsClick"
                 android:text="@string/optionsButtonLabel"
@@ -66,13 +71,14 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:gravity="center_horizontal">
 
             <Button
                 android:id="@+id/socresButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
+                android:layout_weight="1"
                 android:background="@drawable/button"
                 android:onClick="onScoresClick"
                 android:text="@string/scoresButtonLabel"
