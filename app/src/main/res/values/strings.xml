@@ -3,10 +3,12 @@
     <string name="playButtonLabel">PLAY</string>
     <string name="helpButtonLabel">HELP</string>
     <string name="optionsButtonLabel">OPTIONS</string>
+    <string name="scoresButtonLabel">SCORES</string>
     <string name="soundCheckboxLabel">SOUND</string>
     <string name="vibrationCheckboxLabel">VIBRATIONS</string>
     <string name="optionsHeader">GAME OPTIONS</string>
     <string name="helpHeader">GAME RULES</string>
+    <string name="scores">SCORES</string>
     <string name="gameLost">YOU HAVE LOST</string>
     <string name="gameWon">YOU HAVE WON</string>
     <string name="gameRules">All players have two 10x10 fields boards.\n

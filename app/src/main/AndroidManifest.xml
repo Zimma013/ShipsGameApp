@@ -20,6 +20,7 @@
         <activity android:name=".HelpActivity"/>
         <activity android:name=".OptionsActivity"/>
         <activity android:name=".GameActivity"/>
+        <activity android:name=".ScoresActivity"/>
     </application>
 
 </manifest>

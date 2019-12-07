@@ -33,5 +33,8 @@ class MainActivity : AppCompatActivity() {
     fun onOptionsClick(v: View) {
         startActivity(Intent(this@MainActivity, OptionsActivity::class.java))
     }
+    fun onScoresClick(v: View) {
+        startActivity(Intent(this@MainActivity, ScoresActivity::class.java))
+    }
 
 }

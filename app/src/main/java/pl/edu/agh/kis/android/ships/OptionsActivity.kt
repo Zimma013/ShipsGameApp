@@ -17,12 +17,4 @@ class OptionsActivity : AppCompatActivity() {
         )
         setContentView(R.layout.activity_options)
     }
-
-    fun toggleSound(view: View) {
-        Options.sound = !Options.sound
-    }
-
-    fun toggleVibrations(view: View) {
-        Options.vibrations = !Options.vibrations
-    }
 }

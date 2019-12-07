@@ -1,17 +1,20 @@
 package pl.edu.agh.kis.android.ships
 
+import android.content.Context
 import android.content.pm.ActivityInfo
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.view.View
-import android.view.Window
-import android.view.WindowManager
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TableLayout
-import android.widget.Toast
+import android.transition.Slide
+import android.transition.TransitionManager
+import android.view.*
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_game.*
+import org.w3c.dom.Text
 import pl.edu.agh.kis.android.ships.components.Audio
+import pl.edu.agh.kis.android.ships.components.Score
 import java.util.*
 
 class GameActivity : AppCompatActivity() {
@@ -43,7 +46,6 @@ class GameActivity : AppCompatActivity() {
         -1                                 // w celach zawracania ostrzału bez strzelenia po bokach
     private val aiShipFields =
         ArrayList<Int>()                      // tablica trafionych pól statków przez komputer
-
     // delay
     var setDelay: Handler = Handler()
     var startDelay: Runnable = Runnable { ai() }
@@ -142,6 +144,56 @@ class GameActivity : AppCompatActivity() {
                         deleteAllOnClicks()
                         Toast.makeText(applicationContext, applicationContext.getText(R.string.gameWon), Toast.LENGTH_LONG)
                             .show()
+                        val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                        val view = inflater.inflate(R.layout.another_view,null)
+                        val popupWindow = PopupWindow(
+                            view, // Custom view to show in popup window
+                            LinearLayout.LayoutParams.WRAP_CONTENT, // Width of popup window
+                            LinearLayout.LayoutParams.WRAP_CONTENT // Window height
+                             )
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                popupWindow.elevation = 10.0F
+                            }
+                        // If API level 23 or higher then execute the code
+                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                            // Create a new slide animation for popup window enter transition
+                            val slideIn = Slide()
+                            slideIn.slideEdge = Gravity.TOP
+                            popupWindow.enterTransition = slideIn
+
+                            // Slide animation for popup window exit transition
+                            val slideOut = Slide()
+                            slideOut.slideEdge = Gravity.RIGHT
+                            popupWindow.exitTransition = slideOut
+
+                        }
+
+                        // Get the widgets reference from custom view
+                        val buttonPopup = view.findViewById<Button>(R.id.button_popup)
+                        var text = view.findViewById<EditText>(R.id.username)
+                        val score = Score(i+1,text.text.toString())
+                        val dbHandler = ShipsDBOpenHelper(this, null)
+                        // Set a click listener for popup's button widget
+                        buttonPopup.setOnClickListener{
+                            // Dismiss the popup window
+                            dbHandler.addScore(score)
+                            popupWindow.dismiss()
+                        }
+
+                        // Set a dismiss listener for popup window
+                        popupWindow.setOnDismissListener {
+                            Toast.makeText(applicationContext,"Saved",Toast.LENGTH_SHORT).show()
+                        }
+
+
+                        // Finally, show the popup window on app
+                        TransitionManager.beginDelayedTransition(player_table)
+                        popupWindow.showAtLocation(
+                            player_table, // Location to display popup window
+                            Gravity.CENTER, // Exact position of layout to display popup
+                            0, // X offset
+                            0 // Y offset
+                        )
                     }
                 }
             }
