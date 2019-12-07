@@ -10,11 +10,11 @@
 
     <TableLayout
         android:id="@+id/player_table"
-        android:layout_width="327dp"
-        android:layout_height="327dp"
-        android:layout_marginStart="20px"
-        android:layout_marginTop="80px"
-        android:layout_marginBottom="80px"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
         android:alpha="0.7"
         android:background="@drawable/water_tile_background"
         android:orientation="vertical"
@@ -571,6 +571,7 @@
                 android:layout_height="wrap_content"
                 android:tag="69"
                 app:srcCompat="@drawable/water_tile" />
+
         </TableRow>
 
         <TableRow
@@ -809,18 +810,18 @@
                 android:layout_height="wrap_content"
                 android:tag="99"
                 app:srcCompat="@drawable/water_tile" />
+
         </TableRow>
     </TableLayout>
 
     <TableLayout
         android:id="@+id/hit_table"
-        android:layout_width="327dp"
-        android:layout_height="327dp"
-        android:layout_alignParentRight="true"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="20px"
-        android:layout_marginEnd="20px"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="20dp"
         android:alpha="0.8"
         android:background="@drawable/water_tile_background"
         android:shrinkColumns="*">
@@ -1622,24 +1623,24 @@
         android:id="@+id/generateBoardButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/player_table"
-        android:layout_marginEnd="53dp"
-        android:layout_marginTop="88dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="296dp"
+        android:layout_marginEnd="108dp"
+        android:background="@drawable/button"
         android:text="Generuj ponownie"
-        android:textColor="#7784FF"
-        android:background="@drawable/button"/>
+        android:textColor="#7784FF" />
 
     <Button
         android:id="@+id/startGameButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/generateBoardButton"
         android:layout_below="@+id/generateBoardButton"
+        android:layout_alignStart="@+id/generateBoardButton"
         android:layout_marginStart="10dp"
         android:layout_marginTop="40dp"
+        android:background="@drawable/button"
         android:text="Rozpocznij gre"
-        android:textColor="#7784FF"
-        android:background="@drawable/button"/>
+        android:textColor="#7784FF" />
 
 </RelativeLayout>

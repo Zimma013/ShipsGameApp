@@ -58,7 +58,7 @@ class GameActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+//        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
         setDelay = Handler()
         setContentView(R.layout.activity_game)
