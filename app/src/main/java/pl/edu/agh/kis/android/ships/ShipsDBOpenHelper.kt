@@ -35,7 +35,7 @@ class ShipsDBOpenHelper(context: Context,
     }
     fun getAllScore(): Cursor? {
         val db = this.readableDatabase
-        val res = db.rawQuery("select * from $TABLE_NAME ORDER BY $COLUMN_NAME_scoreValue DESC", null)
+        val res = db.rawQuery("select * from $TABLE_NAME ORDER BY $COLUMN_NAME_scoreValue ASC", null)
         res.moveToFirst()
         return res
     }
