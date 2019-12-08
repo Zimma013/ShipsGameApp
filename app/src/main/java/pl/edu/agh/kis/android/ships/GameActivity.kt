@@ -20,7 +20,10 @@ import androidx.core.app.ComponentActivity
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.os.AsyncTask
 import androidx.appcompat.app.AlertDialog
+import kotlinx.android.synthetic.main.activity_score.*
+import java.lang.ref.WeakReference
 
 
 class GameActivity : AppCompatActivity() {
@@ -120,6 +123,8 @@ class GameActivity : AppCompatActivity() {
                         it.setOnClickListener(null) // after clicking on a field, remove onClickListener
                         if (computerShipTable[id] == 0) { // if shot missed
                             turn++
+                            val task = MyAsyncTask(this)
+                            task.execute(turn)
                             vImageView.setImageResource(R.drawable.miss_tile)
 
                             whoShoots = 1 // change turn o computer
@@ -1291,5 +1296,57 @@ class GameActivity : AppCompatActivity() {
             }
         }
         return false
+    }
+    companion object {
+        class MyAsyncTask internal constructor(context: GameActivity) : AsyncTask<Int, String, String?>() {
+
+            private var resp: String? = null
+            private val activityReference: WeakReference<GameActivity> = WeakReference(context)
+            private var context:Context = activityReference.get()!!.baseContext
+
+            override fun onPreExecute() {
+                val activity = activityReference.get()
+                if (activity == null || activity.isFinishing) return
+            }
+
+            override fun doInBackground(vararg turn: Int?): String? {
+                try {
+                    var myList: MutableList<Int> = mutableListOf()
+                    val dbHandler = ShipsDBOpenHelper(context, null)
+                    val cursor = dbHandler.getAllScore()
+                    cursor!!.moveToFirst()
+                    if(cursor.count != 0) {
+                        myList.add(cursor.getString(cursor.getColumnIndex(ShipsDBOpenHelper.COLUMN_NAME_scoreValue)).toInt())
+                        while (cursor.moveToNext()) {
+                            myList.add(cursor.getString(cursor.getColumnIndex(ShipsDBOpenHelper.COLUMN_NAME_scoreValue)).toInt())
+                        }
+                        cursor.close()
+                    }
+                    var number = 1
+                    val iterator = myList.iterator()
+                    iterator.forEach {
+                        if (it < turn[0]!!)
+                        {
+                            number++
+                        }
+                    }
+                    resp = "Your actual position " + number
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                    resp = e.message
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    resp = e.message
+                }
+
+                return resp
+            }
+            override fun onPostExecute(result: String?) {
+
+                val activity = activityReference.get()
+                if (activity == null || activity.isFinishing) return
+                Toast.makeText(activity, result.let { it }, Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
