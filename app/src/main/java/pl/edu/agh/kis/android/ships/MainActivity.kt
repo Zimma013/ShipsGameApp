@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.Toast
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +22,13 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
         setContentView(R.layout.activity_main)
+
+        subscribeToFirebaseTopic()
+    }
+
+    private fun subscribeToFirebaseTopic() {
+        FirebaseMessaging.getInstance().subscribeToTopic("ships-game-app")
+        println("Subscribed to ships-game-app")
     }
 
     fun onHelpClick(v: View) {
