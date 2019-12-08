@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
 
 class OptionsActivity : AppCompatActivity() {
@@ -16,5 +17,17 @@ class OptionsActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
         setContentView(R.layout.activity_options)
+
+        val soundCheckbox = findViewById<CheckBox>(R.id.soundCheckbox)
+        soundCheckbox.setOnClickListener {
+            Options.sound = !Options.sound
+        }
+        soundCheckbox.isChecked = Options.sound
+        val vibrationCheckbox = findViewById<CheckBox>(R.id.vibrationCheckbox)
+        vibrationCheckbox.setOnClickListener{
+            Options.vibrations = !Options.vibrations
+        }
+        vibrationCheckbox.isChecked = Options.vibrations
+
     }
 }
