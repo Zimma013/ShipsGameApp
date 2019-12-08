@@ -18,7 +18,7 @@ class ShipsDBOpenHelper(context: Context,
                 COLUMN_NAME_username
                 + " TEXT," +
                 COLUMN_NAME_scoreValue
-                + " TEXT" + ")")
+                + " INTEGER" + ")")
         db.execSQL(CREATE_PRODUCTS_TABLE)
     }
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
@@ -35,10 +35,12 @@ class ShipsDBOpenHelper(context: Context,
     }
     fun getAllScore(): Cursor? {
         val db = this.readableDatabase
-        return db.rawQuery("SELECT * FROM $TABLE_NAME", null)
+        val res = db.rawQuery("select * from $TABLE_NAME ORDER BY $COLUMN_NAME_scoreValue ASC", null)
+        res.moveToFirst()
+        return res
     }
     companion object {
-        private val DATABASE_VERSION = 4
+        private val DATABASE_VERSION = 5
         private val DATABASE_NAME = "userscore.db"
         val TABLE_NAME = "userscore"
         val COLUMN_ID = "_id"
