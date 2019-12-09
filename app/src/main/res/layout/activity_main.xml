@@ -4,88 +4,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/background">
+    tools:context=".activities.MainActivity"
+    android:background="@drawable/background"
+    android:orientation="vertical">
 
-    <TableLayout
+    <FrameLayout
+        android:id="@+id/main_menu_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true">
-
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:gravity="center_horizontal">
-
-            <!-- android:layout_width="391dp" -->
-            <!-- android:layout_weight="0"    -->
-            <Button
-                android:id="@+id/playButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:onClick="onPlayClick"
-                android:text="@string/playButtonLabel"
-                android:textColor="#7784FF"
-                android:textSize="20sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:gravity="center_horizontal">
-
-            <Button
-                android:id="@+id/helpButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:onClick="onHelpClick"
-                android:text="@string/helpButtonLabel"
-                android:textColor="#7784FF"
-                android:textSize="20sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:gravity="center_horizontal">
-
-            <Button
-                android:id="@+id/optionsButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:onClick="onOptionsClick"
-                android:text="@string/optionsButtonLabel"
-                android:textColor="#7784FF"
-                android:textSize="20sp" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:gravity="center_horizontal">
-
-            <Button
-                android:id="@+id/socresButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/button"
-                android:onClick="onScoresClick"
-                android:text="@string/scoresButtonLabel"
-                android:textColor="#7784FF"
-                android:textSize="20sp" />
-        </TableRow>
-
-    </TableLayout>
-
+        android:orientation="horizontal"/>
 </RelativeLayout>

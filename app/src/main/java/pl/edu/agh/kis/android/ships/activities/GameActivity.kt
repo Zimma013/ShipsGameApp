@@ -1,8 +1,6 @@
-package pl.edu.agh.kis.android.ships
+package pl.edu.agh.kis.android.ships.activities
 
 import android.content.Context
-import android.content.pm.ActivityInfo
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -12,17 +10,12 @@ import android.view.*
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_game.*
-import org.w3c.dom.Text
 import pl.edu.agh.kis.android.ships.components.Audio
 import pl.edu.agh.kis.android.ships.components.Score
 import java.util.*
-import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.os.AsyncTask
-import androidx.appcompat.app.AlertDialog
-import kotlinx.android.synthetic.main.activity_score.*
+import pl.edu.agh.kis.android.ships.R
+import pl.edu.agh.kis.android.ships.ShipsDBOpenHelper
 import java.lang.ref.WeakReference
 
 
@@ -123,7 +116,10 @@ class GameActivity : AppCompatActivity() {
                         it.setOnClickListener(null) // after clicking on a field, remove onClickListener
                         if (computerShipTable[id] == 0) { // if shot missed
                             turn++
-                            val task = MyAsyncTask(this)
+                            val task =
+                                MyAsyncTask(
+                                    this
+                                )
                             task.execute(turn)
                             vImageView.setImageResource(R.drawable.miss_tile)
 
@@ -153,7 +149,9 @@ class GameActivity : AppCompatActivity() {
                     }
                     if (checkTable(computerShipTable)) {
                         deleteAllOnClicks()
-                        Toast.makeText(applicationContext, applicationContext.getText(R.string.gameWon), Toast.LENGTH_LONG)
+                        Toast.makeText(applicationContext, applicationContext.getText(
+                            R.string.gameWon
+                        ), Toast.LENGTH_LONG)
                             .show()
                         val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                         val view = inflater.inflate(R.layout.another_view,null)
@@ -181,7 +179,11 @@ class GameActivity : AppCompatActivity() {
                         popupWindow.setFocusable(true);
                         // Get the widgets reference from custom view
                         val buttonPopup = view.findViewById<Button>(R.id.button_popup)
-                        val dbHandler = ShipsDBOpenHelper(this, null)
+                        val dbHandler =
+                            ShipsDBOpenHelper(
+                                this,
+                                null
+                            )
                         // Set a click listener for popup's button widget
                         buttonPopup.setOnClickListener{
                             // Dismiss the popup window
@@ -1312,7 +1314,11 @@ class GameActivity : AppCompatActivity() {
             override fun doInBackground(vararg turn: Int?): String? {
                 try {
                     var myList: MutableList<Int> = mutableListOf()
-                    val dbHandler = ShipsDBOpenHelper(context, null)
+                    val dbHandler =
+                        ShipsDBOpenHelper(
+                            context,
+                            null
+                        )
                     val cursor = dbHandler.getAllScore()
                     cursor!!.moveToFirst()
                     if(cursor.count != 0) {

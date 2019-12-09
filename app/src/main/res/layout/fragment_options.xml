@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".OptionsActivity">
+    tools:context=".fragments.OptionsFragment">
     <!--<view
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,7 +34,6 @@
         android:layout_marginStart="0dp"
         android:background="#C2003366"
         android:layoutDirection="rtl"
-        android:onClick="toggleSound"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:text="@string/soundCheckboxLabel"
@@ -49,7 +48,6 @@
         android:layout_height="wrap_content"
         android:background="#C2003366"
         android:layoutDirection="rtl"
-        android:onClick="toggleVibrations"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:text="@string/vibrationCheckboxLabel"

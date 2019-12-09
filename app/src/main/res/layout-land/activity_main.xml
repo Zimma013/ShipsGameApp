@@ -1,93 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/background">
-
-    <TableLayout
-        android:layout_width="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:baselineAligned="false"
+    android:orientation="horizontal" >
+    <fragment
+        android:id="@+id/main_menu_left_fragment"
+        android:layout_width="0dp"
+        android:layout_weight="3"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true">
-
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:gravity="center_horizontal">
-
-            <!--android:layout_width="389dp" -->
-            <Button
-                android:id="@+id/playButton"
-                android:layout_width="389dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:background="@drawable/button"
-                android:onClick="onPlayClick"
-                android:text="@string/playButtonLabel"
-                android:textColor="#7784FF"
-                android:textSize="20sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:gravity="center_horizontal">
-
-            <Button
-                android:id="@+id/helpButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:background="@drawable/button"
-                android:onClick="onHelpClick"
-                android:text="@string/helpButtonLabel"
-                android:textColor="#7784FF"
-                android:textSize="20sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:gravity="center_horizontal">
-
-            <Button
-                android:id="@+id/optionsButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:background="@drawable/button"
-                android:onClick="onOptionsClick"
-                android:text="@string/optionsButtonLabel"
-                android:textColor="#7784FF"
-                android:textSize="20sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:gravity="center_horizontal">
-
-            <Button
-                android:id="@+id/socresButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:background="@drawable/button"
-                android:onClick="onScoresClick"
-                android:text="@string/scoresButtonLabel"
-                android:textColor="#7784FF"
-                android:textSize="20sp" />
-        </TableRow>
-
-
-    </TableLayout>
-
-</RelativeLayout>
+        class="pl.edu.agh.kis.android.ships.fragments.MainMenuFragment"
+        tools:layout="@layout/fragment_main_menu">
+    </fragment>
+    <fragment
+        android:id="@+id/detail_right_fragment"
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:layout_height="match_parent"
+        class="pl.edu.agh.kis.android.ships.fragments.HelpFragment"
+        tools:layout="@layout/fragment_help">
+    </fragment>
+</LinearLayout>

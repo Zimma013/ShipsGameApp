@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:orientation="horizontal"
-    tools:context=".GameActivity">
+    tools:context=".activities.GameActivity">
 
     <TableLayout
         android:id="@+id/player_table"
