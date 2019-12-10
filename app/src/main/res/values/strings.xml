@@ -11,6 +11,7 @@
     <string name="scores">SCORES</string>
     <string name="gameLost">YOU HAVE LOST</string>
     <string name="gameWon">YOU HAVE WON</string>
+    <string name="positionPrompt">Your actual position</string>
     <string name="gameRules">All players have two 10x10 fields boards.\n
             On one board, player randomly draws positions of his own ships, which will be later guessed by his opponent.\n
             The other board is to mark hit enemy ships and shots that had been made.\n\n

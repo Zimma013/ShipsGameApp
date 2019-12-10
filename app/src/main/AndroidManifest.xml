@@ -18,9 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".fragments.HelpFragment"/>
-        <activity android:name=".activities.OptionsActivity"/>
         <activity android:name=".activities.GameActivity"/>
-        <activity android:name=".activities.ScoresActivity"/>
 
 
         <service

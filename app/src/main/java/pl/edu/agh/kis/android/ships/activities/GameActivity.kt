@@ -23,31 +23,31 @@ class GameActivity : AppCompatActivity() {
 
     // dane
     private val playerShipTable =
-        IntArray(100)                                 // tablica statków gracza po lewej stronie
+        IntArray(100)                                 // player's ships table on the left
     private val computerShipTable =
-        IntArray(100)                               // tablica statków komputera po prawej stronie
+        IntArray(100)                               // computer ships table on the right
     private val shipFieldsShotByPlayer =
-        ArrayList<Int>()             // tablica trafionych pól statków przez gracza
+        ArrayList<Int>()             // table of hit ship spaces by the player
     private val shipFieldsShotByPlayerTypes =
-        ArrayList<Int>()        // tablica typów trafionych pól statków przez gracza
+        ArrayList<Int>()        // table of types of ship hit spaces by the player
     private var whoShoots =
-        0                                                    // tura gracza czy komputera
+        0                                                    // turn indicator
 
-    // pola dla AI
+    // fields for AI
     private val aiPlayerCoordinates =
-        ArrayList<Int>()                // tabela pól gracza; komputer używa jej w algorytmie strzelania
+        ArrayList<Int>()                // player field table; the computer uses it in the shooting algorithm
     private var aiLastDirection =
-        -1                                             // ostatni kierunek, w którym ai trafiło pole statku
+        -1                                             // last direction in which ai hit the ship's field
     private val aiDirections =
-        ArrayList<Int>()                       // tablica kierunków, używana do losowego określania kierunku ostrzału ai po trafieniu w część statku
+        ArrayList<Int>()                       // direction table, used to randomly determine the firing direction of ai after hitting a part of the ship
     private var aiLastShotShipField =
-        -1                                         // id ostatniego trafionego pola przez komputer
+        -1                                         // id of the last field hit by the computer
     private var aiFirstShotShipField =
-        -1                                        // id pierwszego trafionego pola przez komputer w celach zawracania ostrzału
+        -1                                        // id of the first field hit by the computer for the purpose of turning back fire
     private var aiTwoGoodShotsSameDirection =
-        -1                                 // w celach zawracania ostrzału bez strzelenia po bokach
+        -1                                 // to turn back without firing at the sides
     private val aiShipFields =
-        ArrayList<Int>()                      // tablica trafionych pól statków przez komputer
+        ArrayList<Int>()                      // array of hit ship fields by computer
    private var turn = 0
     // delay
     var setDelay: Handler = Handler()
@@ -1336,7 +1336,8 @@ class GameActivity : AppCompatActivity() {
                             number++
                         }
                     }
-                    resp = "Your actual position " + number
+                    resp = context.getText(
+                        R.string.positionPrompt).toString() +" "+ number
                 } catch (e: InterruptedException) {
                     e.printStackTrace()
                     resp = e.message
